@@ -45,7 +45,7 @@
                 <div class="mb-5">
                     <input type="checkbox" name="remember" id="remember"><label for="remember" class=" text-gray-500 text-sm">Mantener Sesion Iniciada</label> 
                 </div>
-                <input type="submit" value="Iniciar Sesion" class="bg-sky-600 hover:bg-sky-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
+                <input type="submit" value="Iniciar Sesion" class="bg-cyan-600 hover:bg-sky-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
             </form>
         </div>
     </div>

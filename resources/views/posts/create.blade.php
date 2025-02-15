@@ -46,7 +46,7 @@
                         <p class="text-red-500 text-xs italic my-2">{{ $message }}</p>
                     @enderror
                 </div>
-                <input type="submit" value="Crear Publicación" class="bg-sky-600 hover:bg-sky-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
+                <input type="submit" value="Crear Publicación" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
             </form>
         </div>
     </div>

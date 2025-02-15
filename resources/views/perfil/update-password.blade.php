@@ -43,7 +43,7 @@
                     class="border p-3 w-full rounded-lg"
                 >
             </div>
-            <input type="submit" value="Actualizar Datos" class="bg-sky-600 hover:bg-sky-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
+            <input type="submit" value="Actualizar Datos" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
         </form>
         </div>
     </div>

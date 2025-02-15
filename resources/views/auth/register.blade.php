@@ -77,7 +77,7 @@
                         class="border p-3 w-full rounded-lg"
                     >
                 </div>
-                <input type="submit" value="Crear Cuenta" class="bg-sky-600 hover:bg-sky-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
+                <input type="submit" value="Crear Cuenta" class="bg-cyan-600 hover:bg-sky-700 text-white font-bold p-3 w-full rounded-lg transition-colors cursor-pointer">
             </form>
         </div>
     </div>
