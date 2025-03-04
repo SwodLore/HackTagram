@@ -57,7 +57,7 @@
         </main>
 
         <footer class="mt-10 text-center p-5 text-gray-500">
-            DevStagram - Todos los derechos reservados &copy; {{ date('Y') }} Creado por : <a href="https://www.linkedin.com/in/alessandro-piero-poves-martinez-524467318/" referrerPolicy="no-referrer" target="_blank" class="font-bold underline" >Alessandro Poves</a>
+            <p>DevStagram - Todos los derechos reservados &copy; {{ date('Y') }} Creado por : <a href="https://www.linkedin.com/in/alessandro-piero-poves-martinez-524467318/" referrerPolicy="no-referrer" target="_blank" class="font-bold underline" >Alessandro Poves</a></p>
         </footer>
         @livewireScripts
     </body>
