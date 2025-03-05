@@ -1,3 +1,4 @@
+# Usar PHP con FPM
 FROM php:8.2-fpm
 
 # Instalar dependencias necesarias
@@ -14,20 +15,19 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs
 
-# Configuración PHP personalizada
-COPY ./docker/php/php.ini /usr/local/etc/php/
-
-# Definir directorio de trabajo
-WORKDIR /var/www/html
-
 # Copiar código del proyecto Laravel
+WORKDIR /var/www/html
 COPY . /var/www/html
 
-# Instalar dependencias de Laravel
-RUN composer install
+# Instalar dependencias
+RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
-# Permisos de almacenamiento
+# Configurar permisos
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Exponer el puerto
 EXPOSE 9000
+
+# Comando para iniciar Laravel
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9000"]
