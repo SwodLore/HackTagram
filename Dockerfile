@@ -1,33 +1,35 @@
-# Usar PHP con FPM
+# Usa la imagen oficial de PHP con FPM
 FROM php:8.2-fpm
 
-# Instalar dependencias necesarias
+# Instala dependencias del sistema
 RUN apt-get update && apt-get install -y \
-    git unzip curl libpng-dev libjpeg-dev libfreetype6-dev \
-    libonig-dev libzip-dev zip \
+    unzip \
+    curl \
+    git \
+    libpq-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd mbstring zip pdo pdo_mysql
+    && docker-php-ext-install gd pdo pdo_mysql pdo_pgsql
 
-# Instalar Composer
+# Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Instalar Node.js y npm
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
+# Establece el directorio de trabajo
+WORKDIR /var/www
 
-# Copiar código del proyecto Laravel
-WORKDIR /var/www/html
-COPY . /var/www/html
+# Copia el código fuente de Laravel
+COPY . .
 
-# Instalar dependencias
+# Instala dependencias de Laravel
 RUN composer install --no-dev --optimize-autoloader
-RUN npm install && npm run build
 
-# Configurar permisos
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Establece permisos adecuados
+RUN chmod -R 777 storage bootstrap/cache
 
-# Exponer el puerto
+# Expone el puerto de PHP-FPM
 EXPOSE 9000
 
-# Comando para iniciar Laravel
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9000"]
+# Comando de inicio
+CMD ["php-fpm"]
